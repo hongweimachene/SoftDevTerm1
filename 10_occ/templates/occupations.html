@@ -23,16 +23,16 @@
     <br><br>
     Try reloading the page!
     <br>
-    <h3> Randomly generated occupation: {{ randOcc }} </h3>
+    <h3> Randomly generated occupation: <a href = {{occLinks[randOcc]}}>{{randOcc}}</a> </h3>
     <br>
     <table>
         <tr>
             <th> Occupation </th>
             <th> Percentage </th>
-        </tr>
+       </tr>
         {% for item in collection %}
             <tr>
-                <td>{{item}}</td>
+                <td><a href={{occLinks[item]}}>{{item}}</a></td>
                 <td>{{collection[item]}}</td>
             </tr>
         {% endfor %}      
