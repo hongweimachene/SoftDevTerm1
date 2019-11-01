@@ -1,0 +1,37 @@
+h1 {
+        text-align: center;
+        color: white;
+    background-color: #C0C0C0;
+}
+a {
+    color: white;
+    }
+#main {
+    background-color:gray;
+    padding:5px;
+    }
+#nav {
+    display: inline-block;
+    float:left;
+    margin-left:2%;
+    width:20%;
+    }
+#head {
+    display: inline-block;
+    width:75%;
+    }
+#foot {
+    color:gray;
+    background-color: #505050;
+    opacity: .8;
+    text-align:right;
+    padding: 10px;
+    }
+#cover {
+    background-color: gray;
+    }
+#wrap {
+    background-color: #696969;
+    padding: 10px;
+    }
+
