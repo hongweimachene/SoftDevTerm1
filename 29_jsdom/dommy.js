@@ -16,6 +16,7 @@ var changeHeading = function(e) {
 
 //remove element from a list
 var removeItem = function(e) {
+  console.log('removed item')
   e.target.remove();
 };
 
@@ -32,6 +33,7 @@ for (var i = 0; i < lis.length; i++){
 }
 
 var addItem = function(e) {
+  console.log('added new item')
   //select the list
   var list = document.getElementById('thelist');
   //create new element default display 'WORD'
@@ -58,7 +60,7 @@ var fib = function(n) {
 //fib counter
 var fib1count = 0;
 var addFib = function(e){
-  console.log(e);
+  console.log('added next term in fibonacci sequence');
   //select fib list
   var list = document.getElementById('fiblist');
   //create new line
@@ -83,7 +85,7 @@ var fib2 = function(n) {
 //fib counter
 var fib2count = 0;
 var addFib2 = function(e){
-  console.log(e);
+  console.log('added next term in fibonacci sequence');
   //select fib list
   var list = document.getElementById('fiblist');
   //create new line
@@ -96,3 +98,22 @@ var addFib2 = function(e){
 
 var fb = document.getElementById('fb');
 fb.addEventListener('click', addFib);
+
+//triangular number series
+var triangle = function(n) {
+  return n * (n + 1) / 2;
+}
+
+var triCount = 1;
+var addTri = function(e) {
+  console.log('added next term in triangular number series');
+  //append to new triangle number series list
+  var list = document.getElementById('trilist');
+  var item = document.createElement('li');
+  item.innerHTML = triangle(triCount);
+  list.appendChild(item);
+  triCount++;
+}
+
+var trian = document.getElementById('tri');
+trian.addEventListener('click', addTri);
