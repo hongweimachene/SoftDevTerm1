@@ -13,7 +13,9 @@ var start = document.getElementById("start");
 var dvd = document.getElementById("dvd");
 var stop = document.getElementById("stop");
 
-
+//get image
+var img = new Image();
+img.src = "https://raw.githubusercontent.com/stuy-softdev/notes-and-code19-20/master/smpl/200214f_js-canvas-anim/logo_dvd.jpg?token=AKIPN55TGL3CRNWS3N56T7S6J5S7A";
 
 // animate circle initial call
 var play = function(e) {
@@ -49,10 +51,11 @@ var rad = 1;
 // expand or contract
 var expand = 0;
 //declare image position, and change in horizontal + vertical velocity
-var x = Math.floor(Math.random() * 300 + 100)
-var y = Math.floor(Math.random() * 300 + 100)
-var dx = 2 || -2;
-var dy = 2 || -2;
+var x = Math.floor(Math.random() * c.width / 2) + 100
+var y = Math.floor(Math.random() * c.height / 2) + 100
+var arr = [-3,3]
+var dx = arr[Math.floor(Math.random() * arr.length)]
+var dy = arr[Math.floor(Math.random() * arr.length)]
 
 // circle expansion/contraction
 var draw = function(e) {
@@ -87,31 +90,26 @@ var draw = function(e) {
   // state = 1 is DVD PLAYER BOUNCE
   if (state == 1) {
     // draw image
-    ctx.fillStyle = '#000000';
-    ctx.beginPath();
-    ctx.ellipse(x,y,10,10,0,0,Math.PI*2);
-    ctx.fill();
+    ctx.drawImage(img,x,y,120,80)
 
     // bounds logic
     //right
-    if (x + 10 >= c.width) {
-      dx = -1 * dx;
-      x = c.width-10 || c.width-11;
+    if (x + 120 >= c.width) {
+      dx = -dx;
+      x = c.width - 120
     }
     //bottom
-    if (y + 10 >= c.height) {
-      dy = -1 * dy;
-      y = c.height - 10 || c.height - 11;
+    if (y + 80 >= c.height) {
+      dy = -dy;
+      y = c.height - 80
     }
     //left
-    if (x - 10 <= 0) {
-      dx = -1 * dx;
-      x = 10 || 11;
+    if (x <= 0) {
+      dx = -dx;
     }
     //top
-    if (y - 10 <= 0) {
-      dy = -1 * dy;
-      y = 10 || 11;
+    if (y <= 0) {
+      dy = -dy;
     }
 
     // update image position
