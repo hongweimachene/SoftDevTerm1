@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> </title>
+  </head>
+  <body>
+    <h1>Pokedex Query</h1>
+    Search by:
+    <form action="/" >
+      <select id="search" name="search">
+        <option value="id">ID</option>
+        <option value="num">Num</option>
+        <option value="name">Name</option>
+        <option value="img">Image Link</option>
+        <option value="type">One Type</option>
+        <option value="types">Two Types</option>
+        <option value="mh">Max Height (in meters)</option>
+        <option value="mw">Max Weight (in kilograms)</option>
+        <option value="candy">Candy</option>
+        <option value="cc">Candy Count</option>
+        <option value="egg">Max Egg</option>
+        <option value="msc">Max Spawn Chance</option>
+        <option value="mas">Max Average Spawns</option>
+        <option value="st">Spawn Time</option>
+        <option value="mult">Multipliers</option>
+        <option value="weak">Weakness</option>
+        <option value="neNum">Next Evolution Num</option>
+        <option value="peNum">Previous Evolution Num</option>
+        <option value="neName">Next Evolution Name</option>
+        <option value="peName">Previous Evolution Name</option>
+      </select>
+      <input type="text" id="input" name="input" placeholder="Enter Query...">
+      <input type="submit" value="Submit">
+    </form>
+      <br>
+      {% if i %}
+      {% for x in i %}
+      {{x}}<br><br>
+      {% endfor %}
+      {% endif %}
+  </body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <h1>{{team}}</h1>
+    <meta charset="utf-8">
+    <title> Forms are fun! </title>
+  </head>
+  <body>
+    <form action="/auth" >
+        <p1>Input Username:</p1>
+        <input type = "text" name = "data" >
+        <input type = "submit" name = "sub1">
+    </form>
+  </body>
+</html> -->
