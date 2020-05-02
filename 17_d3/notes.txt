@@ -1,0 +1,65 @@
+Hong Wei Chen
+Softdev pd9
+K17: deeper into d3
+2020-04-07
+
+Transitions
+-several useful functions that can intake primitives to customize transitions
+-only modifies attributes that change, allows for better performance
+-allows sequencing of transitions via events
+-CSS3 usable
+
+Let's Make a Bar Chart
+-to select, you can query a selector, ex: const p = d3.selectAll("p");
+-selecton.node() returns your selected element
+-.style allows you to set attributes to your selections easily
+-chaining methods
+ex: d3.create("span")
+    .style("color", "white")
+    .style("background-color", "black")
+    .html("Hello, world!")
+  .node()
+-you can create an element using d3.create();
+ex: const div = d3.create("div")
+      .style("font", "10px sans-serif")
+      .style("text-align", "right")
+      .style("color", "white");
+-automating styling
+ex:  div.selectAll("div")
+      .data(data)
+      .join("div")
+        .style("background", "steelblue")
+        .style("padding", "3px")
+        .style("margin", "1px")
+        .style("width", d => `${d * 10}px`)
+        .text(d => d);
+-scaling to fit
+ex: x = f(n)
+    x = d3.scaleLinear()
+      .domain([0, d3.max(data)])
+    . range([0, 420])
+-using the scale
+ex: div.selectAll("div")
+      .data(data)
+      .join("div")
+        .style("background", "steelblue")
+        .style("padding", "3px")
+        .style("margin", "1px")
+        .style("width", d => `${x(d)}px`)
+        .text(d => d);
+
+By Example
+-you can "require" versions to get more functionality
+ex: d3 = require("d3@5")
+    [d3.min(values), d3.median(values), d3.max(values)]
+-you can import charts and display your data using the with clause
+ex: import {chart as chart1} from @d3/histogram
+    import {chart as chart1} with {values as data} from "@d3/histogram"
+-you can customize the things you import
+ex: height = 200
+    import {chart as chart2} from @d3/histogram
+    import {chart as chart2} with {values as data, height} from "@d3/histogram"
+-you can inject dynamic data like fixing data to a domain
+ex: x = d3.scaleLinear([-10, 10], [margin.left, width - margin.right])
+    import {chart as chart3, margin, width} from @d3/histogram
+    import {chart as chart3, margin, width} with {x, values3 as data, height} from "@d3/histogram"
