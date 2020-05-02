@@ -1,0 +1,18 @@
+Hong Wei Chen
+Softdev pd9
+K15: Capture Bubble Toil Trouble
+2020-04-02
+
+1. Based on alert( this.innerHTML );, and the contents of the html file, I predict
+there will be a table and if you click on it there will be a popup.
+
+2. I predict the text inside the <td> tags will appear first, then the html inside
+the <tr> tag, and then the html of the entire table will be shown. That is the order the code is written,
+though I don't know if that means anything.
+
+3. e.stopPropagation(); will prevent the innerhtml from the table and the <tr> to appear because
+<td> is the innermost shell and will be first to run, the function will stop parent bubbles from doing things.
+It appears I was wrong about my prediction, and it's the other way around.
+
+4. Based on file 3, I think only the table innerhtml will be shown if stopPropagation is used.
+I suppose the order of event listeners do matter, unless there is a stopPropagation function used. 
